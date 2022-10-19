@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    
+</body>
+</html>
+<script>
+       
+    //    Promises
+//  -> Promises are behaviour of javascript which are used to handle asynchronous operations.
+//  It has three states :-
+//  1- Pending
+//  2- Fulfilled 
+//  3 - Rejected
+
+  
+
+// let promise = new Promise(function(resolve, reject){
+//     resolve("done");
+
+//     reject(new Error("..."))
+
+//     setTimeout(()=>{
+//         resolve("...")
+//     })
+// })
+
+
+// console.log(promise)
+
+// const myFirstPromise = new Promise((resolve,reject)=>{
+//     const condition = true;
+
+//     if(condition){
+//         setTimeout(()=>{
+//             resolve("Promise is resolved")
+//         },300)
+//     }
+//     else{
+//         reject("Promise is rejected")
+//     }
+// })
+
+// console.log(myFirstPromise)
+// myFirstPromise.then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// });
+
+
+
+// fetching data from url 
+
+//    fetch("https://jsonplaceholder.typicode.com/posts")
+//    .then((res)=>res.json()).then((res)=>{
+//     // console.log(res)
+//     let data = res ;
+//      console.log(data)
+//     let {body , title} = data[0]
+//      console.log("body:", body );
+//      console.log("Title:", title)
+//    }).catch((e)=>{
+//     console.log(e)
+//    })
+ 
+
+/*
+
+const fetchData = async() =>{
+    fetch("https://reqres.in/api/users?page=2")
+   .then((res)=>{
+    return res.json()
+   }).then((res)=>{
+    // console.log(res.data)
+   let  mainData=res.data
+   
+     appendData(mainData)
+    // console.log(mainData)
+   
+   })
+   
+}
+fetchData()
+
+ const appendData = (data) => {
+    // console.log(data)
+     
+    data.map((elem)=>{
+        // console.log(elem)
+    let box = document.createElement("div")
+    
+    let image = document.createElement("img");
+    image.src = elem.avatar;
+
+    let first_name = document.createElement("p");
+    first_name.innerText = elem.first_name;
+
+    box.append(image,first_name)
+
+    document.querySelector(".container").append(box)
+    })
+   
+   
+   
+
+   
+
+ }
+ */
+
+
+ /*
+
+//  ->async and await 
+
+const getData = async() => {
+    try{
+        let res = await  fetch("https://reqres.in/api/users?page=2");
+        // console.log(res);
+        let data1 = await res.json();
+        //   console.log(data1)
+        let maindata = data1.data;
+
+        // console.log(maindata)
+        // appendData(maindata)
+        return maindata
+    }
+    catch(e){
+        console.log(e)
+    }
+}
+// getData()
+
+const mapData = async() => {
+    let main = await getData()
+    // console.log(main)
+    appendData(main)
+}
+
+mapData()
+const appendData = (data) => {
+    // console.log(data)
+     
+    data.map((elem)=>{
+        // console.log(elem)
+    let box = document.createElement("div")
+    
+    let image = document.createElement("img");
+    image.src = elem.avatar;
+
+    let first_name = document.createElement("p");
+    first_name.innerText = elem.first_name;
+
+    box.append(image,first_name)
+
+    document.querySelector(".container").append(box)
+    })
+   
+   
+}
+ */
+ 
+/*
+
+//  Closures-> Closures area an ability of a function to remember the variables
+//  and functions that are declared in its outer scope
+
+
+ const outerFn = (a) => {
+    let b = 10 ; 
+
+
+    let innerFn = () => {
+       sum = a+b ;
+       console.log(sum)
+    }
+    return innerFn
+ }
+
+ let final = outerFn(5);
+ final()
+
+ */
+
+ /*
+// Call by value and call by reference
+
+//   call by value -> The original value is not modified on changes in other variables
+//  -> It is pointing towards the actual value 
+//   var a = 10 ;
+//   var b = a ;
+//   b=20 ;
+
+//   console.log(a)
+
+
+// Call by reference
+// -> It is pointing towards the address
+
+// var b = {
+//     name:"raj",
+
+// }
+// var c = b ;
+// c.name = "saurabh"
+
+// console.log(b)
+
+// var a = "masai";
+// a[0] = "p";
+// console.log(a)
+
+
+// var arr= [1,2,3,4];
+
+// arr[2]=9;
+// console.log(arr)
+
+// Note:- The primitive datatypes( undefined, bigint , string, Boolean, symbol, number )
+// are basically call by value 
+
+
+// Note:- The Non-primitive datatypes(array, object ) are basically call by reference 
+
+*/
+
+
+ /*
+// Hoisting 
+// :- All the variable and function declarations are moved to the top of their scope before 
+// execution
+
+// a=10 ;
+// console.log(a)
+// var a;    output->10
+
+// var a ;
+// console.log(a);
+// a=10      output->undefined
+
+// a=10 ;
+// console.log(a)
+// let a;    output->reference error cannot access a before initialisation
+
+// var a ;
+// console.log(a);
+// a=10;     output-> undefined
+
+
+
+// const a=20;
+// a=10;               output-> Re-assignment to const is not possible
+// console.log(a);
+
+
+// const arr = [2,3,4];
+
+// arr[1] = 9
+                    
+// console.log(arr)   output-> [2,9,4]
+
+// hoistedFunc()
+// const hoistedFunc = () => {
+//     console.log("I am hoisted function")
+// }
+//  output-> Cannot access 'hoistedFunc' before initialization
+
+// Note:- Like traditional function expressions, arrow functions are not hoisted,
+//  and so you cannot call them before you declare them. 
+// They are also always anonymous—there is no way to name an arrow function
+
+// Hoisting in normal function 
+ 
+// "use strict"
+
+// sum(2,3)
+// function sum (a,b){
+//     add = a+b ;
+//     console.log(add)   output-> variable add is not defined due to use strict mode
+// }
+*/
+/*
+
+Global Execution Context -> Whenever we start writing our code in javascript a
+global execution context is created and variable and function declarations are 
+moved to the top of their scope;
+
+Execution Stack :- The call stack in which our code executes in Javascript 
+which follows a rule of data structure call stack ie Last In First Out;
+
+Debugger:- Debugger is a tool in Javascript which s used to dcetermine in which state 
+of code we are in ;
+
+Event loop : - Whenever there is a function called setTimeOut and setInterval 
+it will take some time , so this will work in browser and it will be in message 
+queue, when javascript will finish its work that code will be pushed to call stack
+fot the execution.
+
+
+const funcA = () => {
+    debugger
+    funcC()
+    debugger
+    console.log("I am func A")
+}
+
+const funcB = () => {
+debugger
+console.log("I am func B")
+}
+
+const funcC = () => {
+    debugger
+ funcB()
+ debugger
+console.log("I am func C")
+}
+
+funcA()
+*/
+ 
+
+/*
+// Constructor Functions 
+
+
+// Creating Object 
+
+//  #Creating Object by Object literals
+
+//  var obj1 = {
+//     name: "saurabh",
+//     age:26,
+//  }
+// Note:- If someone told you to create 100 objects , then this is not the optimised 
+// way
+
+// var person = {
+//     name: "saurabh",
+//     age:26,
+//     myName: function(){
+//         console.log(this.name)
+//     }
+// }
+// person.myName()  Note:- Here this refers to owner object which is person
+
+
+// #Creating Object by function Constructor
+
+// function Player(n,a){
+//     this.name = n,
+//     this.age = a
+//     console.log(this)
+// }
+
+// let obj = new Player("saurabh", 26);  (new return function )
+// console.log(obj)
+
+
+// Call , Apply , Bind 
+
+
+// Call
+
+// var obj1 = {
+//     name: "saurabh"
+// }
+
+
+// var obj2 = {
+//     name:"raj"
+// }
+
+// function myName(){
+//     console.log(this.name)
+// }
+
+//  myName.call(obj2)    output-> raj
+//  myName.call(obj1)    output-> saurabh
+
+// apply
+
+// var person1 = {
+//     name:"saurabh"
+// }
+
+// function myName (a,c){
+//     this.age = a ,
+//     this.city= c
+// }
+// myName.apply(person1,[24,"pune"]);
+// console.log(person1) output->  saurabh , 24 , pune
+
+
+// myName.bind(person1,24,"pune");
+
+// console.log(person1)    output->  saurabh 
+
+// Callback hell -> Callback hell is a nested callback stacked below one another.
+// Every call back depends on previous callback making pyramid like structure
+
+// const getRollno = () => {
+//    setTimeout(()=>{
+//     console.log("API getting roll no");
+//     let roll = 3;
+
+//     setTimeout(()=>{
+//        console.log(roll)
+//     },2000)
+//    },2000)
+// }
+// getRollno()
+*/
+
+// function Person (name,age){
+//     this.name = name,
+//     this.age = age
+// }
+
+
+// let obj1 = new Person("Saurabh", 29)
+
+// Person.prototype.city = "Mumbai";
+
+// console.log(obj1.hasOwnProperty())
+
+/*
+// Inheritance
+
+// class Person{
+//     constructor(n,a){
+//         this.name=n,
+//         this.age=a
+//     }
+
+//      myName(){
+//         console.log(`my name is ${this.name}`)
+//      }
+// }
+
+// let obj = new Person ("Saurabh", 29);
+// // console.log(obj.myName())
+
+
+// class student extends Person {
+//     constructor(n,a,r){
+//          super(n,a)
+//          this.role= r
+//     }
+
+//     myRole(){
+//         console.log(`I am ${this.role}`)
+//     }
+// }
+
+// let obj2 = new student("rahul",24 , "teacher")
+// console.log(obj2)
+*/
+
+
+</script>
